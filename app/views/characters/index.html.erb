@@ -1,0 +1,30 @@
+<h1>Personajes Harry Potter</h1>
+
+<p>Total Personajes: <%= @characters.count %></p>
+
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Ubicación</th>
+        <th scope="col">Casa</th>
+        <th scope="col">Visita al personaje</th>
+        </tr>
+    </thead>
+<% @characters.each do |character| %>
+    <tbody>
+        <tr>
+            <th scope="row">
+                <%= character.id%>
+            </th>
+            <td><%= character.name %></td>
+            <td><%= character.location %></td>
+            <td><%= character.house %></td>
+            <td><%= link_to "Show this character", character %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<%= link_to "New character", new_character_path %>
